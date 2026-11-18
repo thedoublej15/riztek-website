@@ -164,3 +164,60 @@
     @apply font-sans font-normal text-[12px] leading-[21px];
   }
 }
+
+/* Keyframes animacion logos */
+@keyframes marquee-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 42s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 38s linear infinite;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Asegura que btn-motion solo anime en dispositivos con cursor real (desktop) */
+@utility btn-motion {
+  @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+    transition:
+      transform 450ms cubic-bezier(0.25, 0.1, 0.25, 1),
+      box-shadow 450ms cubic-bezier(0.25, 0.1, 0.25, 1),
+      background-color 300ms ease,
+      border-color 300ms ease,
+      color 300ms ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Neutraliza cualquier transición o movimiento accidental en pantallas táctiles */
+@media (hover: none), (pointer: coarse) {
+  a,
+  button,
+  [role="button"] {
+    transition: none !important;
+    transform: none !important;
+  }
+}
