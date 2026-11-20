@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Hourglass, Building2, Handshake } from "lucide-react";
+import { HeroButton } from "@/components/ui/HeroButton";
 
 export function Hero() {
   return (
@@ -23,19 +23,13 @@ export function Hero() {
 
         {/* Botones CTA */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-12 lg:mb-10">
-          <Link
-            href="/contacto"
-            className="btn-motion w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold text-slate-900 bg-white hover:bg-blue-50 shadow-lg shadow-blue-950/20"
-          >
+          <HeroButton href="/contacto" variant="primary">
             Iniciar cotización
-          </Link>
+          </HeroButton>
 
-          <Link
-            href="/casos-de-exito"
-            className="btn-motion w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold text-slate-900 bg-white/30 hover:bg-white/80 backdrop-blur-sm"
-          >
+          <HeroButton href="/casos-de-exito" variant="secondary">
             Proyectos realizados
-          </Link>
+          </HeroButton>
         </div>
 
         {/* Barra Blanca de Métricas (1200 x 108 en escritorio) */}

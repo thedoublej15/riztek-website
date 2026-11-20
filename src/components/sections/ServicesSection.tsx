@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Terminal, Smartphone, AppWindow, BarChart2 } from "lucide-react";
+import { SectionButton } from "@/components/ui/SectionButton";
 
 const services = [
   {
@@ -38,7 +39,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="w-full px-4 sm:px-8">
+    <section id="servicios" className="w-full px-4 sm:px-8 scroll-mt-28">
       {/* Contenedor principal de 1136px para el encabezado alineado a la izquierda */}
       <div className="max-w-[1136px] mx-auto">
         
@@ -64,7 +65,7 @@ export function ServicesSection() {
             return (
               <div
                 key={service.title}
-                className="relative group bg-white rounded-[24px] p-7 sm:p-9 border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] transition-all duration-300 ease-out lg:hover:scale-[1.02] lg:hover:border-[#1E4FB8]/45 lg:hover:shadow-[0_18px_40px_-12px_rgba(30,79,184,0.16)] flex flex-col justify-between"
+                className="relative group bg-white rounded-[24px] p-7 sm:p-9 border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:ease-out lg:[@media(hover:hover)_and_(pointer:fine)]:hover:scale-[1.02] lg:[@media(hover:hover)_and_(pointer:fine)]:hover:border-[#1E4FB8]/45 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:shadow-[0_18px_40px_-12px_rgba(30,79,184,0.16)] flex flex-col justify-between"
               >
                 {/* Capa clicable de tarjeta completa: activa SOLO en escritorio con puntero fino */}
                 <Link
@@ -75,7 +76,7 @@ export function ServicesSection() {
 
                 <div>
                   {/* Icono en caja azul suave */}
-                  <div className="w-11 h-11 rounded-xl bg-[#EEF4FF] flex items-center justify-center text-[#1E4FB8] transition-colors duration-300 lg:group-hover:bg-[#1E4FB8] lg:group-hover:text-white mb-6">
+                  <div className="w-11 h-11 rounded-xl bg-[#EEF4FF] flex items-center justify-center text-[#1E4FB8] lg:[@media(hover:hover)_and_(pointer:fine)]:transition-colors lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-[#1E4FB8] lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:text-white mb-6">
                     <Icon className="w-5 h-5" />
                   </div>
 
@@ -103,12 +104,12 @@ export function ServicesSection() {
 
                 {/* Botón CTA: único disparador en celular, tablet y pantallas táctiles */}
                 <div className="relative z-20 lg:pointer-events-none [@media(pointer:coarse)]:!pointer-events-auto">
-                  <Link
+                  <SectionButton
                     href={service.href}
-                    className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#1E4FB8] hover:bg-[#173e93] lg:group-hover:bg-[#173e93] shadow-sm shadow-[#1E4FB8]/20 transition-all"
+                    className="lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-[#173e93]"
                   >
                     Ver servicio
-                  </Link>
+                  </SectionButton>
                 </div>
               </div>
             );

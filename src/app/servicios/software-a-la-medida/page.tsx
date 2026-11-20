@@ -1,12 +1,29 @@
+import { PageBackgroundGlow } from "@/components/ui/PageBackgroundGlow";
+import { SectionDivider } from "@/components/ui/SectionDivider";
+import { HeroSoftwareMedida } from "@/components/sections/servicios/software-a-la-medida/HeroSoftwareMedida";
+import { TrustedClientsStrip } from "@/components/sections/shared/TrustedClientsStrip";
+import { ValorAgregadoSoftware } from "@/components/sections/servicios/software-a-la-medida/ValorAgregadoSoftware";
+import { MetodologiaSoftware } from "@/components/sections/servicios/software-a-la-medida/MetodologiaSoftware";
+import { VentajasSoftware } from "@/components/sections/servicios/software-a-la-medida/VentajasSoftware";
+import { CtaSoftwareMedida } from "@/components/sections/servicios/software-a-la-medida/CtaSoftwareMedida";
+
 export default function SoftwareALaMedidaPage() {
-    return (
-      <main className="min-h-screen bg-[#F3F7FF]">
-        {/* Contenido temporal de prueba */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h1 className="font-space text-4xl font-bold text-slate-900 mb-4">
-            SoftwareALaMedida — En construcción
-          </h1>
-        </section>
-      </main>
-    );
-  }
+  return (
+    <main className="relative min-h-screen bg-[#F3F7FF]">
+      <PageBackgroundGlow />
+
+      <div className="relative z-10 pb-20 lg:pb-28">
+        <HeroSoftwareMedida />
+        <TrustedClientsStrip />
+        <SectionDivider showLine={false} />
+        <ValorAgregadoSoftware />
+        <SectionDivider />
+        <MetodologiaSoftware />
+        <SectionDivider />
+        <VentajasSoftware />
+        <SectionDivider showLine={false} />
+        <CtaSoftwareMedida />
+      </div>
+    </main>
+  );
+}

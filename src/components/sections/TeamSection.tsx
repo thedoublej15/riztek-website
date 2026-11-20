@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import { SectionButton } from "@/components/ui/SectionButton";
 
 const teamMembers = [
   {
@@ -32,12 +32,9 @@ export function TeamSection() {
             Especialistas experimentados trabajando mano a mano en la solución que tu empresa necesita.
           </p>
 
-          <Link
-            href="/nosotros"
-            className="btn-motion inline-flex items-center justify-center px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#1E4FB8] hover:bg-[#173e93] shadow-sm shadow-[#1E4FB8]/20"
-          >
+          <SectionButton href="/nosotros">
             Conócenos
-          </Link>
+          </SectionButton>
         </div>
 
         {/* Columna Derecha: Perfiles del Equipo */}
@@ -51,7 +48,7 @@ export function TeamSection() {
                 {member.name}
               </h3>
 
-              <div className="relative w-36 h-36 sm:w-48 sm:h-48 lg:w-[216px] lg:h-[216px] rounded-full overflow-hidden bg-slate-900 border-4 border-white shadow-[0_12px_30px_-8px_rgba(8,27,75,0.18)] transition-transform duration-300 ease-out [@media(hover:hover)_and_(pointer:fine)]:lg:group-hover:scale-[1.03]">
+              <div className="relative w-36 h-36 sm:w-48 sm:h-48 lg:w-[216px] lg:h-[216px] rounded-full overflow-hidden bg-slate-900 border-4 border-white shadow-[0_12px_30px_-8px_rgba(8,27,75,0.18)] lg:[@media(hover:hover)_and_(pointer:fine)]:transition-transform lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:ease-out lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.03]">
                 <Image
                   src={member.image}
                   alt={member.name}

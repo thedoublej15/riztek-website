@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { SectionButton } from "@/components/ui/SectionButton";
 
 const row1Logos = [
   { src: "/images/logos/1_logo_rios.png", alt: "Ríos Ríos & Co." },
@@ -84,7 +84,7 @@ export function ClientsSection() {
       {/* Contenedor del Marquee Infinito con bordes difuminados */}
       <div
         onPointerUp={handleDesktopPointerUp}
-        className="max-w-[1200px] mx-auto space-y-5 sm:space-y-6 mb-10 lg:mb-12 [@media(hover:hover)_and_(pointer:fine)]:lg:cursor-pointer [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+        className="max-w-[1200px] mx-auto space-y-5 sm:space-y-6 mb-10 lg:mb-12 lg:[@media(hover:hover)_and_(pointer:fine)]:cursor-pointer [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
       >
         {/* Fila 1: Logos 1 - 10 (Movimiento hacia la derecha) */}
         <div
@@ -95,7 +95,7 @@ export function ClientsSection() {
           {[...row1Logos, ...row1Logos].map((logo, idx) => (
             <div
               key={`row1-${idx}`}
-              className="mx-2.5 sm:mx-3 w-[200px] h-[94px] sm:w-[255px] sm:h-[112px] bg-white rounded-[22px] border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] transition-all duration-300 [@media(hover:hover)_and_(pointer:fine)]:lg:hover:border-[#1E4FB8]/45 [@media(hover:hover)_and_(pointer:fine)]:lg:hover:shadow-[0_12px_28px_rgba(30,79,184,0.1)] px-7 py-4 flex items-center justify-center shrink-0"
+              className="mx-2.5 sm:mx-3 w-[200px] h-[94px] sm:w-[255px] sm:h-[112px] bg-white rounded-[22px] border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:border-[#1E4FB8]/45 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:shadow-[0_12px_28px_rgba(30,79,184,0.1)] px-7 py-4 flex items-center justify-center shrink-0"
             >
               <div className="relative w-full h-full">
                 <Image
@@ -119,7 +119,7 @@ export function ClientsSection() {
           {[...row2Logos, ...row2Logos].map((logo, idx) => (
             <div
               key={`row2-${idx}`}
-              className="mx-2.5 sm:mx-3 w-[200px] h-[94px] sm:w-[255px] sm:h-[112px] bg-white rounded-[22px] border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] transition-all duration-300 [@media(hover:hover)_and_(pointer:fine)]:lg:hover:border-[#1E4FB8]/45 [@media(hover:hover)_and_(pointer:fine)]:lg:hover:shadow-[0_12px_28px_rgba(30,79,184,0.1)] px-7 py-4 flex items-center justify-center shrink-0"
+              className="mx-2.5 sm:mx-3 w-[200px] h-[94px] sm:w-[255px] sm:h-[112px] bg-white rounded-[22px] border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:border-[#1E4FB8]/45 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:shadow-[0_12px_28px_rgba(30,79,184,0.1)] px-7 py-4 flex items-center justify-center shrink-0"
             >
               <div className="relative w-full h-full">
                 <Image
@@ -138,12 +138,9 @@ export function ClientsSection() {
       {/* Botón CTA alineado a 1136px */}
       <div className="w-full px-4 sm:px-8">
         <div className="max-w-[1136px] mx-auto">
-          <Link
-            href="/casos-de-exito"
-            className="btn-motion inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#1E4FB8] hover:bg-[#173e93] shadow-sm shadow-[#1E4FB8]/20"
-          >
+          <SectionButton href="/casos-de-exito">
             Ver casos de éxito
-          </Link>
+          </SectionButton>
         </div>
       </div>
     </section>
