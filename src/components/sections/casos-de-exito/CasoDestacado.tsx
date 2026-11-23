@@ -9,7 +9,7 @@ interface CasoDestacadoProps {
 
 export function CasoDestacado({ caso }: CasoDestacadoProps) {
   return (
-    <section id="casos" className="w-full px-4 sm:px-8 scroll-mt-28">
+    <section aria-labelledby="caso-destacado-heading" className="w-full px-4 sm:px-8">
       <div className="max-w-[1136px] mx-auto">
         {/* Pill superior uniforme */}
         <div className="mb-5 sm:mb-6">
@@ -31,6 +31,7 @@ export function CasoDestacado({ caso }: CasoDestacadoProps) {
                 src={caso.coverBg}
                 alt={`Fondo de ${caso.cliente}`}
                 fill
+                loading="eager"
                 sizes="(max-width: 1024px) 100vw, 540px"
                 className="object-cover transition-transform duration-500 lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.03]"
               />
@@ -42,6 +43,7 @@ export function CasoDestacado({ caso }: CasoDestacadoProps) {
                     src={caso.logo}
                     alt={`Logo de ${caso.cliente}`}
                     fill
+                    loading="eager"
                     sizes="240px"
                     className="object-contain grayscale opacity-90 drop-shadow-[0_6px_18px_rgba(0,0,0,0.5)]"
                   />
@@ -63,7 +65,10 @@ export function CasoDestacado({ caso }: CasoDestacadoProps) {
                 </div>
 
                 {/* Título */}
-                <h2 className="font-space font-bold text-2xl sm:text-[28px] lg:text-[31px] text-slate-900 leading-[1.2] tracking-[-0.5px] mb-3.5">
+                <h2
+                  id="caso-destacado-heading"
+                  className="font-space font-bold text-2xl sm:text-[28px] lg:text-[31px] text-slate-900 leading-[1.2] tracking-[-0.5px] mb-3.5"
+                >
                   <Link
                     href={`/casos-de-exito/${caso.slug}`}
                     className="lg:[@media(hover:hover)_and_(pointer:fine)]:hover:text-[#1E4FB8] transition-colors"

@@ -43,7 +43,7 @@ export function GridCasos({ casos }: GridCasosProps) {
 
         {/* Grid de tarjetas (escalable de 1 a N casos) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-          {casos.map((caso) => (
+          {casos.map((caso, index) => (
             <article
               key={caso.slug}
               className="group flex flex-col justify-between bg-white rounded-[22px] p-5 border border-slate-100/90 shadow-[0_12px_32px_rgba(30,79,184,0.05)] transition-all duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:shadow-[0_18px_42px_rgba(30,79,184,0.11)] lg:[@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-0.5"
@@ -58,6 +58,7 @@ export function GridCasos({ casos }: GridCasosProps) {
                     src={caso.coverBg}
                     alt={`Portada de ${caso.cliente}`}
                     fill
+                    loading={index === 0 ? "eager" : "lazy"}
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 340px"
                     className="object-cover transition-transform duration-500 lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.04]"
                   />
