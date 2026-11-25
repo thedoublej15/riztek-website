@@ -15,6 +15,7 @@ const desktopDropdownItemHover =
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
 
@@ -22,6 +23,17 @@ export function Navbar() {
   const isServices = pathname.startsWith("/servicios");
   const isCases = pathname.startsWith("/casos-de-exito");
   const isAbout = pathname === "/nosotros";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 40;
+      setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleHomeNavigation = (e: React.MouseEvent<HTMLAnchorElement>) => {
     setIsOpen(false);
@@ -54,12 +66,10 @@ export function Navbar() {
   };
 
   const handleServicesClick = () => {
-    // Si es un dispositivo con puntero (desktop), el clic confirma/mantiene abierto el menú en lugar de cerrarlo por accidente
     if (supportsFineHover()) {
       setServicesOpen(true);
       return;
     }
-    // En pantallas táctiles grandes (ej. iPad Pro horizontal), conserva el toggle al tocar
     setServicesOpen((prev) => !prev);
   };
 
@@ -73,7 +83,13 @@ export function Navbar() {
 
   return (
     <header className="w-screen bg-transparent pt-5 px-4 sm:px-8 fixed top-0 left-0 z-50">
-      <div className="max-w-[1200px] mx-auto bg-white rounded-full shadow-[0_6px_24px_rgb(0,0,0,0.05)] border border-slate-100 px-6 sm:px-8 lg:px-12">
+      <div
+        className={`max-w-[1200px] mx-auto backdrop-blur-md rounded-full px-6 sm:px-8 lg:px-12 transition-[background-color,box-shadow,border-color] duration-500 ease-out ${
+          isScrolled
+            ? "bg-white/88 shadow-[0_8px_30px_rgba(8,27,75,0.06)] border border-white/75 ring-1 ring-slate-900/[0.04]"
+            : "bg-white shadow-[0_6px_24px_rgb(0,0,0,0.05)] border border-slate-100 ring-1 ring-transparent"
+        }`}
+      >
         <div className="flex items-center justify-between h-[58px]">
           
           {/* Logo */}
@@ -134,7 +150,13 @@ export function Navbar() {
               {servicesOpen && (
                 /* pt-3 actúa como puente invisible para que el cursor no pierda el hover al bajar */
                 <div className="absolute top-full left-0 pt-3 w-64 z-50">
-                  <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-2.5 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div
+                    className={`backdrop-blur-md rounded-2xl p-2.5 animate-in fade-in slide-in-from-top-2 duration-200 transition-[background-color,box-shadow,border-color] duration-500 ease-out ${
+                      isScrolled
+                        ? "bg-white/92 shadow-[0_14px_34px_rgba(8,27,75,0.10)] border border-white/80 ring-1 ring-slate-900/[0.05]"
+                        : "bg-white shadow-xl border border-slate-100"
+                    }`}
+                  >
                     <Link
                       href="/servicios/software-a-la-medida"
                       onClick={() => setServicesOpen(false)}
@@ -221,7 +243,7 @@ export function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
-              className="p-2 rounded-xl text-[#5A687C] hover:bg-slate-100 focus:outline-none cursor-pointer"
+              className="p-2 rounded-xl text-[#5A687C] hover:bg-slate-900/5 focus:outline-none cursor-pointer"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -233,19 +255,25 @@ export function Navbar() {
       {/* Menú Desplegable (Móvil y Tablet < 1024px) */}
       {isOpen && (
         <div className="lg:hidden max-w-[1200px] mx-auto mt-2">
-          <div className="bg-white rounded-3xl border border-slate-100 p-5 shadow-xl space-y-3">
+          <div
+            className={`backdrop-blur-md rounded-3xl p-5 space-y-3 transition-[background-color,box-shadow,border-color] duration-500 ease-out ${
+              isScrolled
+                ? "bg-white/92 border border-white/80 ring-1 ring-slate-900/[0.05] shadow-[0_14px_34px_rgba(8,27,75,0.10)]"
+                : "bg-white border border-slate-100 shadow-xl"
+            }`}
+          >
             <Link
               href="/"
               onClick={handleHomeNavigation}
               className={`block px-3 py-2 rounded-xl text-base transition-colors ${
                 isHome
                   ? "text-[#1E4FB8] font-semibold bg-[#1E4FB8]/10"
-                  : "font-medium text-[#5A687C] hover:bg-slate-50"
+                  : "font-medium text-[#5A687C] hover:bg-slate-50/70"
               }`}
             >
               Inicio
             </Link>
-            <div className="space-y-1 pl-3 border-l-2 border-slate-100 my-2">
+            <div className="space-y-1 pl-3 border-l-2 border-slate-200/70 my-2">
               <p className="text-eyebrow text-slate-400 py-1">Servicios</p>
               <Link
                 href="/servicios/software-a-la-medida"
