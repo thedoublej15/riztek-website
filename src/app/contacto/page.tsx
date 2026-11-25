@@ -1,12 +1,23 @@
+import type { Metadata } from "next";
+import { PageBackgroundGlow } from "@/components/ui/PageBackgroundGlow";
+import { HeroContacto } from "@/components/sections/contacto/HeroContacto";
+import { ContactoSection } from "@/components/sections/contacto/ContactoSection";
+
+export const metadata: Metadata = {
+  title: "Contacto | Riztek - Hablemos de tu próximo proyecto",
+  description:
+    "Ponte en contacto con Riztek. Cuéntanos tu reto y construyamos juntos software a la medida, soluciones CONTPAQi o plataformas web para tu empresa.",
+};
+
 export default function ContactoPage() {
-    return (
-      <main className="min-h-screen bg-[#F3F7FF]">
-        {/* Contenido temporal de prueba */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h1 className="font-space text-4xl font-bold text-slate-900 mb-4">
-            Contacto — En construcción
-          </h1>
-        </section>
-      </main>
-    );
-  }
+  return (
+    <main className="relative min-h-screen bg-[#F3F7FF]">
+      <PageBackgroundGlow />
+
+      <div className="relative z-10 pb-20 lg:pb-28">
+        <HeroContacto />
+        <ContactoSection />
+      </div>
+    </main>
+  );
+}
