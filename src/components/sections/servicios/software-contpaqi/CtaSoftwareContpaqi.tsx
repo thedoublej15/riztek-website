@@ -34,10 +34,10 @@ export function CtaSoftwareContpaqi() {
               href={LISTA_PRECIOS_PDF_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto min-h-[52px] inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition-colors lg:[@media(hover:hover)_and_(pointer:fine)]:hover:bg-white/15"
+              className="group w-full sm:w-auto h-[52px] inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/40 bg-white/5 px-8 text-sm font-semibold text-white lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:ease-out lg:[@media(hover:hover)_and_(pointer:fine)]:hover:bg-white/15 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:border-white/60 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-0.5"
             >
               <span>Descargar lista completa</span>
-              <Download className="w-4 h-4 shrink-0" />
+              <Download className="w-4 h-4 shrink-0 lg:[@media(hover:hover)_and_(pointer:fine)]:transition-transform lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-y-0.5" />
             </a>
           </div>
         </div>

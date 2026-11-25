@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { HeroButton } from "@/components/ui/HeroButton";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -30,15 +31,14 @@ export function CtaCasoDetalle() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full sm:w-auto">
             <HeroButton href="/contacto" variant="white">
               <span>Hablar con un asesor</span>
-              <span>→</span>
+              <ArrowRight className="w-4 h-4 shrink-0" />
             </HeroButton>
 
             <a
               href="/casos-de-exito#casos"
-              className="w-full sm:w-auto min-h-[52px] inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition-colors lg:[@media(hover:hover)_and_(pointer:fine)]:hover:bg-white/15"
+              className="w-full sm:w-auto h-[52px] inline-flex items-center justify-center whitespace-nowrap rounded-full border border-white/40 bg-white/5 px-8 text-sm font-semibold text-white lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:ease-out lg:[@media(hover:hover)_and_(pointer:fine)]:hover:bg-white/15 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:border-white/60 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-0.5"
             >
-              <span>Ver más casos</span>
-              <span>→</span>
+              Ver más casos
             </a>
           </div>
         </div>
