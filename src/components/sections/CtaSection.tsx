@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { SectionButton } from "@/components/ui/SectionButton";
+import { ArrowRight } from "lucide-react";
+import { HeroButton } from "@/components/ui/HeroButton";
 
 export function CtaSection() {
   return (
@@ -29,9 +30,10 @@ export function CtaSection() {
             Ya sea que necesites desarrollar un sistema a la medida o modernizar tu infraestructura actual, estamos listos para platicar sobre tu proyecto.
           </p>
 
-          <SectionButton href="/contacto">
+          <HeroButton href="/contacto" variant="blue">
             Trabaja con nosotros
-          </SectionButton>
+            <ArrowRight className="w-4 h-4 shrink-0" />
+          </HeroButton>
         </div>
 
         {/* Imagen Inferior (Móvil y Tablet) también con máscara limpia */}

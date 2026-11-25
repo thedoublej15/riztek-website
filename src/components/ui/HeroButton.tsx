@@ -39,7 +39,7 @@ export function HeroButton({
   ...props
 }: HeroButtonProps) {
   const baseClasses =
-    "btn-motion w-full sm:w-fit max-w-full inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full text-center text-sm font-semibold leading-snug select-none";
+    "group btn-motion w-full sm:w-fit max-w-full inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full text-center text-sm font-semibold leading-snug select-none lg:[@media(hover:hover)_and_(pointer:fine)]:[&_svg]:transition-transform lg:[@media(hover:hover)_and_(pointer:fine)]:[&_svg]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:[&_svg]:translate-x-0.5";
 
   const combinedClasses = `${baseClasses} ${variantStyles[variant]} ${className}`.trim();
 

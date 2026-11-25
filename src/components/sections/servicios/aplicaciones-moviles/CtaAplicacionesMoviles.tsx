@@ -1,4 +1,5 @@
 import { HeroButton } from "@/components/ui/HeroButton";
+import { ArrowRight } from "lucide-react";
 
 export function CtaAplicacionesMoviles() {
   return (
@@ -20,7 +21,8 @@ export function CtaAplicacionesMoviles() {
           </p>
 
           <HeroButton href="/contacto" variant="white">
-            Cotizar proyecto →
+            Cotizar proyecto
+            <ArrowRight className="w-4 h-4 shrink-0" />
           </HeroButton>
         </div>
       </div>

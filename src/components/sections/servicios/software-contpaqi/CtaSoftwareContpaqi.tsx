@@ -1,5 +1,7 @@
 import { Download } from "lucide-react";
 import { HeroButton } from "@/components/ui/HeroButton";
+import { ArrowRight } from "lucide-react";
+
 
 const LISTA_PRECIOS_PDF_URL =
   "https://storage.googleapis.com/wzukusers/user-34871119/documents/8a1f9cdfca3b4369a4a22715664950e9/Lista_de_Precios_Sistemas_CONTPAQi_2021.pdf";
@@ -25,8 +27,8 @@ export function CtaSoftwareContpaqi() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full sm:w-auto">
             <HeroButton href="/contacto" variant="white">
-              <span>Hablar con un asesor</span>
-              <span>→</span>
+              Hablar con un asesor
+              <ArrowRight className="w-4 h-4 shrink-0" />
             </HeroButton>
 
             <a

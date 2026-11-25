@@ -55,6 +55,9 @@ const socialLinks = [
 const inputBaseClass =
   "w-full rounded-xl bg-[#F4F6FA] border border-slate-200/80 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#1E4FB8] focus:ring-2 focus:ring-[#1E4FB8]/15 transition-all";
 
+const contactLinkClass =
+  "lg:[@media(hover:hover)_and_(pointer:fine)]:hover:text-[#1E4FB8] lg:[@media(hover:hover)_and_(pointer:fine)]:transition-colors";
+
 export function ContactoSection() {
   const [nombre, setNombre] = useState("");
   const [empresa, setEmpresa] = useState("");
@@ -370,12 +373,12 @@ export function ContactoSection() {
               </div>
             )}
 
-            {/* Botones de Acción */}
+            {/* Botones de Acción con movimiento uniforme (HeroButton / SectionButton) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1E4FB8] px-6 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-[0_10px_24px_-6px_rgba(30,79,184,0.45)] transition-all duration-200 hover:bg-[#173e93] disabled:opacity-65 disabled:cursor-not-allowed cursor-pointer"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#1E4FB8] px-6 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-[0_10px_24px_-6px_rgba(30,79,184,0.45)] cursor-pointer disabled:opacity-65 disabled:cursor-not-allowed lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:ease-out lg:[@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#173e93] lg:[@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-0.5 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:shadow-[0_14px_28px_-6px_rgba(30,79,184,0.55)]"
               >
                 {status === "loading" ? (
                   <>
@@ -385,7 +388,7 @@ export function ContactoSection() {
                 ) : (
                   <>
                     <span>Enviar mensaje</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 shrink-0 lg:[@media(hover:hover)_and_(pointer:fine)]:transition-transform lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-x-0.5" />
                   </>
                 )}
               </button>
@@ -394,10 +397,10 @@ export function ContactoSection() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white border border-slate-200 px-6 py-3.5 text-xs sm:text-sm font-semibold text-slate-800 shadow-[0_2px_10px_rgba(15,23,41,0.03)] transition-all duration-200 hover:border-[#1E4FB8]/45 hover:text-[#1E4FB8]"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white border border-slate-200 px-6 py-3.5 text-xs sm:text-sm font-semibold text-slate-800 shadow-[0_2px_10px_rgba(15,23,41,0.03)] lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:ease-out lg:[@media(hover:hover)_and_(pointer:fine)]:hover:border-[#1E4FB8]/45 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:text-[#1E4FB8] lg:[@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-0.5 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:shadow-[0_10px_24px_-8px_rgba(30,79,184,0.18)]"
               >
                 <svg
-                  className="w-4 h-4 text-slate-700"
+                  className="w-4 h-4 shrink-0"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                 >
@@ -430,7 +433,7 @@ export function ContactoSection() {
                 </span>
                 <a
                   href="tel:+526143779995"
-                  className="font-space font-bold text-base sm:text-[17px] text-slate-900 hover:text-[#1E4FB8] transition-colors"
+                  className={`font-space font-bold text-base sm:text-[17px] text-slate-900 ${contactLinkClass}`}
                 >
                   614-377-9995
                 </a>
@@ -448,7 +451,7 @@ export function ContactoSection() {
                 </span>
                 <a
                   href="mailto:hola@riztek.com.mx"
-                  className="font-space font-bold text-base sm:text-[17px] text-slate-900 hover:text-[#1E4FB8] transition-colors break-all"
+                  className={`font-space font-bold text-base sm:text-[17px] text-slate-900 break-all ${contactLinkClass}`}
                 >
                   hola@riztek.com.mx
                 </a>
@@ -468,7 +471,7 @@ export function ContactoSection() {
                   href="https://maps.app.goo.gl/dq3rbbSXkYWTsNTi6"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs sm:text-[13px] font-semibold text-slate-800 leading-relaxed hover:text-[#1E4FB8] transition-colors block"
+                  className={`text-xs sm:text-[13px] font-semibold text-slate-800 leading-relaxed block ${contactLinkClass}`}
                 >
                   Olivo Farga 17900, CP: 31183
                   <br />
@@ -484,7 +487,7 @@ export function ContactoSection() {
               href="https://maps.app.goo.gl/dq3rbbSXkYWTsNTi6"
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-sm px-3.5 py-1.5 text-[11px] font-semibold text-slate-800 shadow-[0_4px_14px_rgba(15,23,41,0.12)] border border-slate-200/70 transition-all hover:text-[#1E4FB8] hover:border-[#1E4FB8]/40"
+              className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-sm px-3.5 py-1.5 text-[11px] font-semibold text-slate-800 shadow-[0_4px_14px_rgba(15,23,41,0.12)] border border-slate-200/70 lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:ease-out lg:[@media(hover:hover)_and_(pointer:fine)]:hover:text-[#1E4FB8] lg:[@media(hover:hover)_and_(pointer:fine)]:hover:border-[#1E4FB8]/45 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-0.5 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:shadow-[0_8px_18px_rgba(30,79,184,0.18)]"
             >
               <Navigation className="w-3 h-3 text-[#1E4FB8]" />
               <span>Abrir en Maps</span>
@@ -495,7 +498,7 @@ export function ContactoSection() {
               src="https://maps.google.com/maps?q=Olivo%20Farga%2017900,%2031183%20Chihuahua,%20Chih.,%20Mexico&t=&z=15&ie=UTF8&iwloc=&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full border-0 saturate-[0.75] contrast-[0.96] transition-all duration-300 group-hover:saturate-100"
+              className="w-full h-[calc(100%+72px)] -mt-[48px] border-0 saturate-[0.75] contrast-[0.96] lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:saturate-100"
             />
           </div>
 
@@ -513,7 +516,7 @@ export function ContactoSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="w-8 h-8 rounded-full border border-slate-200/90 bg-white text-slate-700 flex items-center justify-center transition-all duration-200 hover:border-[#1E4FB8] hover:text-[#1E4FB8] hover:bg-[#EEF4FF]/60"
+                  className="w-8 h-8 rounded-full border border-slate-200/90 bg-white text-slate-700 flex items-center justify-center lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:ease-out lg:[@media(hover:hover)_and_(pointer:fine)]:hover:border-[#1E4FB8] lg:[@media(hover:hover)_and_(pointer:fine)]:hover:text-[#1E4FB8] lg:[@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#EEF4FF]/60 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-0.5"
                 >
                   {social.icon}
                 </a>
