@@ -12,6 +12,7 @@ import {
   Loader2,
   Navigation,
 } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 const socialLinks = [
   {
@@ -221,7 +222,7 @@ export function ContactoSection() {
 
       <div className="max-w-[1136px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-start gap-6 lg:gap-7">
         {/* COLUMNA IZQUIERDA (7 cols): Tarjeta de Formulario */}
-        <div className="lg:col-span-7 bg-white rounded-[26px] p-7 sm:p-9 lg:p-10 border border-slate-200/70 shadow-[0_10px_30px_rgba(8,27,75,0.04)] text-left">
+        <Reveal className="lg:col-span-7 bg-white rounded-[26px] p-7 sm:p-9 lg:p-10 border border-slate-200/70 shadow-[0_10px_30px_rgba(8,27,75,0.04)] text-left">
           <h2 className="font-space font-bold text-xl sm:text-[23px] text-slate-900 leading-snug mb-2">
             Envíanos un mensaje
           </h2>
@@ -416,10 +417,13 @@ export function ContactoSection() {
               información será tratada de forma confidencial.
             </p>
           </form>
-        </div>
+        </Reveal>
 
         {/* COLUMNA DERECHA (5 cols): Datos directos + Mapa + Redes */}
-        <div className="lg:col-span-5 bg-white rounded-[26px] p-7 sm:p-8 lg:p-9 border border-slate-200/70 shadow-[0_10px_30px_rgba(8,27,75,0.04)] text-left flex flex-col justify-between">
+        <Reveal
+          delay={120}
+          className="lg:col-span-5 bg-white rounded-[26px] p-7 sm:p-8 lg:p-9 border border-slate-200/70 shadow-[0_10px_30px_rgba(8,27,75,0.04)] text-left flex flex-col justify-between"
+        >
           {/* Lista de datos de contacto */}
           <div className="space-y-6 mb-7">
             {/* Teléfono / WhatsApp */}
@@ -523,7 +527,7 @@ export function ContactoSection() {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

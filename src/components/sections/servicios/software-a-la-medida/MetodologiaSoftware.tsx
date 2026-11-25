@@ -1,4 +1,5 @@
 import { Info, CircleDot, Code2, Clock } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 const methodologySteps = [
   {
@@ -37,7 +38,7 @@ export function MetodologiaSoftware() {
       className="w-full px-4 sm:px-8"
     >
       <div className="max-w-[1136px] mx-auto">
-        <div className="w-full text-left mb-12 lg:mb-14">
+        <Reveal className="w-full text-left mb-12 lg:mb-14">
           <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#E3ECFF] text-[#1E4FB8] text-[11px] font-bold tracking-[0.14em] uppercase mb-5">
             METODOLOGÍA DE TRABAJO
           </span>
@@ -47,7 +48,7 @@ export function MetodologiaSoftware() {
           >
             Del análisis a la implementación
           </h2>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7">
           {methodologySteps.map((step, index) => {
@@ -55,7 +56,11 @@ export function MetodologiaSoftware() {
             const isLast = index === methodologySteps.length - 1;
 
             return (
-              <div key={step.number} className="relative flex">
+              <Reveal
+                key={step.number}
+                delay={index * 90}
+                className="relative flex"
+              >
                 <article className="w-full bg-white rounded-[24px] p-7 border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] flex flex-col">
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-11 h-11 rounded-xl bg-[#EEF4FF] flex items-center justify-center text-[#1E4FB8]">
@@ -84,7 +89,7 @@ export function MetodologiaSoftware() {
                     <span className="w-1.5 h-1.5 rounded-full bg-[#1E4FB8] shrink-0 -ml-1" />
                   </div>
                 )}
-              </div>
+              </Reveal>
             );
           })}
         </div>

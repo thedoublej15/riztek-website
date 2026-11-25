@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { HeroButton } from "@/components/ui/HeroButton";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function CtaSection() {
   return (
     <section className="w-full px-4 sm:px-8">
       {/* Tarjeta CTA de 1200 x 341 en escritorio */}
-      <div className="relative max-w-[1200px] mx-auto lg:min-h-[341px] rounded-[28px] bg-[#E6EBF3] border border-slate-200/80 shadow-[0_12px_36px_-10px_rgba(8,27,75,0.08)] overflow-hidden flex flex-col lg:flex-row lg:items-center">
+      <Reveal className="relative max-w-[1200px] mx-auto lg:min-h-[341px] rounded-[28px] bg-[#E6EBF3] border border-slate-200/80 shadow-[0_12px_36px_-10px_rgba(8,27,75,0.08)] overflow-hidden flex flex-col lg:flex-row lg:items-center">
         
         {/* Imagen de fondo derecha (Desktop) con mask-image para evitar cortes de subpíxel al hacer zoom */}
         <div className="hidden lg:block absolute inset-y-0 right-0 w-[56%] pointer-events-none select-none [mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.08)_16%,rgba(0,0,0,0.65)_45%,#000_78%)] [-webkit-mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.08)_16%,rgba(0,0,0,0.65)_45%,#000_78%)]">
@@ -48,7 +49,7 @@ export function CtaSection() {
           />
         </div>
 
-      </div>
+      </Reveal>
     </section>
   );
 }

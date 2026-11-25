@@ -1,4 +1,5 @@
 import { Target, Eye } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 const pilares = [
   {
@@ -24,7 +25,7 @@ export function MisionVision() {
     >
       <div className="max-w-[1136px] mx-auto">
         {/* Encabezado uniforme */}
-        <div className="w-full text-left mb-10 sm:mb-12 lg:mb-14">
+        <Reveal className="w-full text-left mb-10 sm:mb-12 lg:mb-14">
           <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#E3ECFF] text-[#1E4FB8] text-[11px] font-bold tracking-[0.14em] uppercase mb-5">
             MISIÓN Y VISIÓN
           </span>
@@ -35,32 +36,31 @@ export function MisionVision() {
           >
             Hacia dónde vamos y cómo lo hacemos
           </h2>
-        </div>
+        </Reveal>
 
         {/* Grid de 2 tarjetas estáticas de Misión y Visión */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-7">
-          {pilares.map((pilar) => {
+          {pilares.map((pilar, index) => {
             const Icon = pilar.icon;
             return (
-              <article
-                key={pilar.titulo}
-                className="bg-white rounded-[24px] p-7 sm:p-9 lg:p-10 border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] flex flex-col justify-start text-left"
-              >
-                {/* Caja de icono uniforme */}
-                <div className="w-11 h-11 rounded-xl bg-[#EEF4FF] flex items-center justify-center text-[#1E4FB8] mb-6 shrink-0">
-                  <Icon className="w-5 h-5" />
-                </div>
+              <Reveal key={pilar.titulo} delay={index * 100} className="h-full">
+                <article className="h-full bg-white rounded-[24px] p-7 sm:p-9 lg:p-10 border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] flex flex-col justify-start text-left">
+                  {/* Caja de icono uniforme */}
+                  <div className="w-11 h-11 rounded-xl bg-[#EEF4FF] flex items-center justify-center text-[#1E4FB8] mb-6 shrink-0">
+                    <Icon className="w-5 h-5" />
+                  </div>
 
-                {/* Título */}
-                <h3 className="font-space font-bold text-xl sm:text-[22px] text-slate-900 leading-snug mb-3.5">
-                  {pilar.titulo}
-                </h3>
+                  {/* Título */}
+                  <h3 className="font-space font-bold text-xl sm:text-[22px] text-slate-900 leading-snug mb-3.5">
+                    {pilar.titulo}
+                  </h3>
 
-                {/* Descripción */}
-                <p className="text-sm sm:text-[15px] text-[#5A687C] leading-[1.75]">
-                  {pilar.descripcion}
-                </p>
-              </article>
+                  {/* Descripción */}
+                  <p className="text-sm sm:text-[15px] text-[#5A687C] leading-[1.75]">
+                    {pilar.descripcion}
+                  </p>
+                </article>
+              </Reveal>
             );
           })}
         </div>

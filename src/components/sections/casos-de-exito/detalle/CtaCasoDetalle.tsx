@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { HeroButton } from "@/components/ui/HeroButton";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function CtaCasoDetalle() {
   return (
@@ -7,7 +7,7 @@ export function CtaCasoDetalle() {
       aria-labelledby="cta-caso-detalle-heading"
       className="w-full px-4 sm:px-8"
     >
-      <div className="relative max-w-[1200px] mx-auto rounded-[28px] bg-gradient-to-br from-[#235FE3] via-[#1C4EC3] to-[#143B99] shadow-[0_16px_40px_-12px_rgba(20,59,153,0.35)] overflow-hidden px-7 py-11 sm:px-12 sm:py-14 lg:py-16 text-center">
+      <Reveal className="relative max-w-[1200px] mx-auto rounded-[28px] bg-gradient-to-br from-[#235FE3] via-[#1C4EC3] to-[#143B99] shadow-[0_16px_40px_-12px_rgba(20,59,153,0.35)] overflow-hidden px-7 py-11 sm:px-12 sm:py-14 lg:py-16 text-center">
         {/* Destello decorativo suave */}
         <div
           aria-hidden="true"
@@ -33,17 +33,16 @@ export function CtaCasoDetalle() {
               <span>→</span>
             </HeroButton>
 
-            <Link
+            <a
               href="/casos-de-exito#casos"
-              scroll={false}
               className="w-full sm:w-auto min-h-[52px] inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition-colors lg:[@media(hover:hover)_and_(pointer:fine)]:hover:bg-white/15"
             >
               <span>Ver más casos</span>
               <span>→</span>
-            </Link>
+            </a>
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

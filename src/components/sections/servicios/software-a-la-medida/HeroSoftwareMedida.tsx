@@ -12,7 +12,7 @@ export function HeroSoftwareMedida() {
         <div className="lg:col-span-6 text-left">
           <nav
             aria-label="Ruta de navegación"
-            className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.08em] mb-5 sm:mb-6"
+            className="hero-enter flex flex-wrap items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.08em] mb-5 sm:mb-6"
           >
             <Link
               href="/"
@@ -33,18 +33,18 @@ export function HeroSoftwareMedida() {
             </span>
           </nav>
 
-          <h1 className="font-space font-bold text-4xl sm:text-5xl lg:text-[68px] text-slate-900 leading-[1.1] lg:leading-[74px] tracking-tight lg:tracking-[-2px] max-w-[460px] mb-5 sm:mb-6">
+          <h1 className="hero-enter hero-delay-1 font-space font-bold text-4xl sm:text-5xl lg:text-[68px] text-slate-900 leading-[1.1] lg:leading-[74px] tracking-tight lg:tracking-[-2px] max-w-[460px] mb-5 sm:mb-6">
             Software a la
             <br />
             Medida
           </h1>
 
-          <p className="text-base sm:text-lg lg:text-[18px] text-[#5A687C] leading-relaxed lg:leading-[29px] max-w-[470px] mb-8 sm:mb-9">
+          <p className="hero-enter hero-delay-2 text-base sm:text-lg lg:text-[18px] text-[#5A687C] leading-relaxed lg:leading-[29px] max-w-[470px] mb-8 sm:mb-9">
             Digitaliza tu empresa con un sistema potente y escalable, diseñado
             exactamente a la medida de tus procesos.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          <div className="hero-enter hero-delay-3 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <HeroButton href="/contacto" variant="blue">
               <span>Cotizar servicio</span>
               <ArrowRight className="w-4 h-4 shrink-0" />
@@ -57,7 +57,7 @@ export function HeroSoftwareMedida() {
         </div>
 
         {/* Columna Derecha: Tarjeta azul y monitores SVG replicando el diseño de Figma */}
-        <div className="lg:col-span-6 flex justify-center lg:justify-end">
+        <div className="hero-enter hero-delay-2 lg:col-span-6 flex justify-center lg:justify-end">
           <div className="relative w-full max-w-[463px] aspect-[463/445] rounded-[32px] bg-gradient-to-tr from-[#1E4FB8] via-[#2F6BDC] to-[#5B95F2] shadow-[0_35px_70px_rgba(30,79,184,0.45)] flex items-center justify-center px-3 sm:px-4">
             <Image
               src="/images/illustrations/monitores.svg"

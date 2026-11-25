@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ShoppingCart, Gift, Info, Briefcase } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 const appTypes = [
   {
@@ -52,7 +53,7 @@ export function TiposDeApps() {
       className="w-full px-4 sm:px-8"
     >
       <div className="max-w-[1136px] mx-auto">
-        <div className="w-full text-left mb-12 lg:mb-14">
+        <Reveal className="w-full text-left mb-12 lg:mb-14">
           <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#E3ECFF] text-[#1E4FB8] text-[11px] font-bold tracking-[0.14em] uppercase mb-5">
             TIPOS DE APPS
           </span>
@@ -62,51 +63,49 @@ export function TiposDeApps() {
           >
             La app ideal para cada objetivo
           </h2>
-        </div>
+        </Reveal>
 
         {/* Fila 1: 4 Tarjetas de Tipos de Apps */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 mb-6 lg:mb-7">
-          {appTypes.map((item) => {
+          {appTypes.map((item, index) => {
             const Icon = item.icon;
             return (
-              <article
-                key={item.title}
-                className="bg-white rounded-[24px] p-7 border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] flex flex-col"
-              >
-                <div className="w-11 h-11 rounded-xl bg-[#EEF4FF] flex items-center justify-center text-[#1E4FB8] mb-6">
-                  <Icon className="w-5 h-5" />
-                </div>
+              <Reveal key={item.title} delay={index * 90} className="h-full">
+                <article className="h-full bg-white rounded-[24px] p-7 border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] flex flex-col">
+                  <div className="w-11 h-11 rounded-xl bg-[#EEF4FF] flex items-center justify-center text-[#1E4FB8] mb-6">
+                    <Icon className="w-5 h-5" />
+                  </div>
 
-                <h3 className="font-space font-semibold text-lg sm:text-xl text-slate-900 leading-snug mb-2.5">
-                  {item.title}
-                </h3>
+                  <h3 className="font-space font-semibold text-lg sm:text-xl text-slate-900 leading-snug mb-2.5">
+                    {item.title}
+                  </h3>
 
-                <p className="text-xs sm:text-sm text-[#5A687C] leading-relaxed">
-                  {item.description}
-                </p>
-              </article>
+                  <p className="text-xs sm:text-sm text-[#5A687C] leading-relaxed">
+                    {item.description}
+                  </p>
+                </article>
+              </Reveal>
             );
           })}
         </div>
 
         {/* Fila 2: 3 Tarjetas Fotográficas con Badge flotante */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7">
-          {appPhotos.map((photo) => (
-            <div
-              key={photo.badge}
-              className="relative h-[220px] sm:h-[235px] lg:h-[240px] w-full rounded-[24px] overflow-hidden bg-slate-200 border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)]"
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                sizes="(max-width: 768px) 100vw, 360px"
-                className="object-cover"
-              />
-              <span className="absolute top-4 left-4 rounded-full bg-white/95 backdrop-blur-xs text-slate-900 text-xs font-semibold px-3.5 py-1.5 shadow-sm">
-                {photo.badge}
-              </span>
-            </div>
+          {appPhotos.map((photo, index) => (
+            <Reveal key={photo.badge} delay={index * 110}>
+              <div className="relative h-[220px] sm:h-[235px] lg:h-[240px] w-full rounded-[24px] overflow-hidden bg-slate-200 border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)]">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 360px"
+                  className="object-cover"
+                />
+                <span className="absolute top-4 left-4 rounded-full bg-white/95 backdrop-blur-xs text-slate-900 text-xs font-semibold px-3.5 py-1.5 shadow-sm">
+                  {photo.badge}
+                </span>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

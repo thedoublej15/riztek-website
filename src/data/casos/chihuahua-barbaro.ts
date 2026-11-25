@@ -82,8 +82,8 @@ export const chihuahuaBarbaro: CasoExito = {
     },
   ],
   galeria: [
-    "/images/projects/chihuahua-barbaro/captura_1.png",
-    "/images/projects/chihuahua-barbaro/captura_2.png",
-    "/images/projects/chihuahua-barbaro/captura_3.png",
+    "/images/projects/chihuahua-barbaro/detalles_monitor.png",
+    "/images/projects/chihuahua-barbaro/detalles_celular.png",
+    "/images/projects/chihuahua-barbaro/detalles_laptop.png",
   ],
 };

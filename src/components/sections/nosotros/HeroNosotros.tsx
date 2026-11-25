@@ -41,7 +41,7 @@ export function HeroNosotros() {
         <div className="lg:col-span-6 text-left lg:self-start lg:pt-[31px]">
           <nav
             aria-label="Ruta de navegación"
-            className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.08em] mb-5 sm:mb-6"
+            className="hero-enter flex flex-wrap items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.08em] mb-5 sm:mb-6"
           >
             <Link
               href="/"
@@ -55,14 +55,14 @@ export function HeroNosotros() {
             </span>
           </nav>
 
-          <h1 className="font-space font-bold text-4xl sm:text-5xl lg:text-[68px] text-slate-900 leading-[1.1] lg:leading-[74px] tracking-tight lg:tracking-[-2px] max-w-[460px] mb-5 sm:mb-6">
+          <h1 className="hero-enter hero-delay-1 font-space font-bold text-4xl sm:text-5xl lg:text-[68px] text-slate-900 leading-[1.1] lg:leading-[74px] tracking-tight lg:tracking-[-2px] max-w-[460px] mb-5 sm:mb-6">
             Historia de
             <br />
             Riztek
           </h1>
 
           {/* Cita con comillas a la izquierda y línea vertical debajo */}
-          <blockquote className="flex items-stretch gap-3.5 max-w-[470px] mb-8 sm:mb-9">
+          <blockquote className="hero-enter hero-delay-2 flex items-stretch gap-3.5 max-w-[470px] mb-8 sm:mb-9">
             <div className="flex flex-col items-center shrink-0 pt-0.5 select-none">
               <span
                 aria-hidden="true"
@@ -83,7 +83,7 @@ export function HeroNosotros() {
           </blockquote>
 
           {/* Botones idénticos a HeroCasos */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          <div className="hero-enter hero-delay-3 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <HeroButton
               variant="blue"
               onClick={handleScrollToTeam}
@@ -100,7 +100,7 @@ export function HeroNosotros() {
         </div>
 
         {/* Columna Derecha: Misma caja exacta (463/445) que HeroCasos para alinear TrustedClientsStrip */}
-        <div className="lg:col-span-6 flex justify-center lg:justify-end">
+        <div className="hero-enter hero-delay-2 lg:col-span-6 flex justify-center lg:justify-end">
           <div className="relative w-full max-w-[463px] aspect-[463/445] flex items-center justify-center">
             <Image
               src="/images/illustrations/pared_logros.svg"

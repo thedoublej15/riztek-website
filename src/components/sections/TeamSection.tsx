@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { SectionButton } from "@/components/ui/SectionButton";
+import { Reveal } from "@/components/ui/Reveal";
 
 const teamMembers = [
   {
@@ -19,7 +20,7 @@ export function TeamSection() {
       <div className="max-w-[1138px] mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,28rem)_1fr] lg:items-center gap-y-10 lg:gap-y-0 lg:gap-x-12">
         
         {/* 1. Encabezado (Arriba en móvil/tablet, Columna Izquierda Superior en escritorio) */}
-        <div className="max-w-md text-left lg:self-end lg:mb-8">
+        <Reveal className="max-w-md text-left lg:self-end lg:mb-8">
           <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#E3ECFF] text-[#1E4FB8] text-[11px] font-bold tracking-[0.14em] uppercase mb-5">
             NUESTRO EQUIPO
           </span>
@@ -31,13 +32,14 @@ export function TeamSection() {
           <p className="text-sm sm:text-base text-[#5A687C] leading-relaxed">
             Especialistas experimentados trabajando mano a mano en la solución que tu empresa necesita.
           </p>
-        </div>
+        </Reveal>
 
         {/* 2. Perfiles del Equipo (En medio en móvil/tablet, Columna Derecha completa en escritorio) */}
         <div className="grid grid-cols-2 sm:flex sm:items-center justify-center lg:justify-end gap-6 sm:gap-12 lg:gap-16 lg:col-start-2 lg:row-start-1 lg:row-span-2">
-          {teamMembers.map((member) => (
-            <div
+          {teamMembers.map((member, index) => (
+            <Reveal
               key={member.name}
+              delay={100 + index * 120}
               className="flex flex-col items-center text-center"
             >
               <h3 className="font-space font-medium text-base sm:text-xl lg:text-[22px] text-slate-900 mb-4 sm:mb-5">
@@ -53,16 +55,16 @@ export function TeamSection() {
                   className="object-cover object-top"
                 />
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
         {/* 3. Botón CTA (Al final en móvil/tablet, Columna Izquierda Inferior en escritorio) */}
-        <div className="lg:col-start-1 lg:row-start-2 lg:self-start">
+        <Reveal delay={180} className="lg:col-start-1 lg:row-start-2 lg:self-start">
           <SectionButton href="/nosotros">
             Conócenos
           </SectionButton>
-        </div>
+        </Reveal>
 
       </div>
     </section>

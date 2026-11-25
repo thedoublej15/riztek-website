@@ -7,22 +7,22 @@ export function Hero() {
       <div className="max-w-[1200px] mx-auto flex flex-col items-center text-center">
         
         {/* Etiqueta superior */}
-        <span className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-blue-200/90 uppercase mb-3 lg:mb-4">
+        <span className="hero-enter text-xs sm:text-sm font-semibold tracking-[0.2em] text-blue-200/90 uppercase mb-3 lg:mb-4">
           AGENCIA DE SOFTWARE
         </span>
 
         {/* Título Principal */}
-        <h1 className="font-space font-semibold text-4xl sm:text-5xl lg:text-[76px] text-white leading-[1.1] lg:leading-[77.5px] tracking-tight lg:tracking-[-1.9px] max-w-2xl lg:max-w-[540px] mb-5 lg:mb-5">
+        <h1 className="hero-enter hero-delay-1 font-space font-semibold text-4xl sm:text-5xl lg:text-[76px] text-white leading-[1.1] lg:leading-[77.5px] tracking-tight lg:tracking-[-1.9px] max-w-2xl lg:max-w-[540px] mb-5 lg:mb-5">
           Procesos más rápidos, Negocios más eficientes
         </h1>
 
         {/* Subtítulo */}
-        <p className="text-base sm:text-lg text-blue-100/90 max-w-2xl mb-8 lg:mb-8 font-normal">
+        <p className="hero-enter hero-delay-2 text-base sm:text-lg text-blue-100/90 max-w-2xl mb-8 lg:mb-8 font-normal">
           Especialistas en desarrollo de software y soporte técnico.
         </p>
 
         {/* Botones CTA */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-12 lg:mb-10">
+        <div className="hero-enter hero-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-12 lg:mb-10">
           <HeroButton href="/contacto" variant="primary">
             Iniciar cotización
           </HeroButton>
@@ -33,7 +33,7 @@ export function Hero() {
         </div>
 
         {/* Barra Blanca de Métricas (1200 x 108 en escritorio) */}
-        <div className="w-full lg:h-[108px] bg-white rounded-[28px] shadow-[0_12px_28px_-6px_rgba(8,27,75,0.14),0_28px_60px_-15px_rgba(30,79,184,0.22)] border border-[#1E4FB8]/10 px-6 py-7 lg:py-0 lg:px-8 flex items-center">
+        <div className="hero-enter hero-delay-4 w-full lg:h-[108px] bg-white rounded-[28px] shadow-[0_12px_28px_-6px_rgba(8,27,75,0.14),0_28px_60px_-15px_rgba(30,79,184,0.22)] border border-[#1E4FB8]/10 px-6 py-7 lg:py-0 lg:px-8 flex items-center">
           <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 md:divide-x md:divide-slate-200/75 items-center">
             
             {/* Métrica 1 */}

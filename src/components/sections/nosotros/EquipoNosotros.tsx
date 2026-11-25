@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/ui/Reveal";
 
 const miembros = [
   {
@@ -24,7 +25,7 @@ export function EquipoNosotros() {
     >
       <div className="max-w-[1136px] mx-auto">
         {/* Encabezado uniforme */}
-        <div className="w-full text-left mb-12 sm:mb-14">
+        <Reveal className="w-full text-left mb-12 sm:mb-14">
           <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#E3ECFF] text-[#1E4FB8] text-[11px] font-bold tracking-[0.14em] uppercase mb-5">
             NUESTRO EQUIPO
           </span>
@@ -40,33 +41,35 @@ export function EquipoNosotros() {
             Especialistas en tecnología y estrategia dedicados al crecimiento
             digital de tu empresa.
           </p>
-        </div>
+        </Reveal>
 
         {/* Grid de 2 miembros centrado */}
         <div className="max-w-[780px] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
-          {miembros.map((miembro) => (
-            <article key={miembro.cargo} className="flex flex-col text-left">
-              <h3 className="font-space font-bold text-2xl sm:text-[26px] text-slate-900 leading-[1.2] mb-2">
-                {miembro.nombre}
-                <br />
-                {miembro.apellido}
-              </h3>
+          {miembros.map((miembro, index) => (
+            <Reveal key={miembro.cargo} delay={index * 120}>
+              <article className="flex flex-col text-left">
+                <h3 className="font-space font-bold text-2xl sm:text-[26px] text-slate-900 leading-[1.2] mb-2">
+                  {miembro.nombre}
+                  <br />
+                  {miembro.apellido}
+                </h3>
 
-              <span className="block text-[11px] sm:text-xs font-semibold uppercase tracking-[0.08em] text-[#8A98AC] mb-5">
-                {miembro.cargo}
-              </span>
+                <span className="block text-[11px] sm:text-xs font-semibold uppercase tracking-[0.08em] text-[#8A98AC] mb-5">
+                  {miembro.cargo}
+                </span>
 
-              <div className="relative w-full aspect-[4/4.6] rounded-[24px] overflow-hidden bg-slate-900 shadow-[0_18px_40px_rgba(15,23,41,0.12)] select-none">
-                <Image
-                  src={miembro.imagen}
-                  alt={`${miembro.nombre} ${miembro.apellido} - ${miembro.cargo}`}
-                  fill
-                  priority
-                  sizes="(max-width: 640px) 100vw, 350px"
-                  className="object-cover object-top"
-                />
-              </div>
-            </article>
+                <div className="relative w-full aspect-[4/4.6] rounded-[24px] overflow-hidden bg-slate-900 shadow-[0_18px_40px_rgba(15,23,41,0.12)] select-none">
+                  <Image
+                    src={miembro.imagen}
+                    alt={`${miembro.nombre} ${miembro.apellido} - ${miembro.cargo}`}
+                    fill
+                    priority
+                    sizes="(max-width: 640px) 100vw, 350px"
+                    className="object-cover object-top"
+                  />
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

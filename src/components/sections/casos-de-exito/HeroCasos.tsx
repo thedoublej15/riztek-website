@@ -12,7 +12,7 @@ export function HeroCasos() {
         <div className="lg:col-span-6 text-left lg:self-start lg:pt-[31px]">
           <nav
             aria-label="Ruta de navegación"
-            className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.08em] mb-5 sm:mb-6"
+            className="hero-enter flex flex-wrap items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-[0.08em] mb-5 sm:mb-6"
           >
             <Link
               href="/"
@@ -26,18 +26,18 @@ export function HeroCasos() {
             </span>
           </nav>
 
-          <h1 className="font-space font-bold text-4xl sm:text-5xl lg:text-[68px] text-slate-900 leading-[1.1] lg:leading-[74px] tracking-tight lg:tracking-[-2px] max-w-[460px] mb-5 sm:mb-6">
+          <h1 className="hero-enter hero-delay-1 font-space font-bold text-4xl sm:text-5xl lg:text-[68px] text-slate-900 leading-[1.1] lg:leading-[74px] tracking-tight lg:tracking-[-2px] max-w-[460px] mb-5 sm:mb-6">
             Proyectos de
             <br />
             impacto
           </h1>
 
-          <p className="text-base sm:text-lg lg:text-[18px] text-[#5A687C] leading-relaxed lg:leading-[29px] max-w-[470px] mb-8 sm:mb-9">
+          <p className="hero-enter hero-delay-2 text-base sm:text-lg lg:text-[18px] text-[#5A687C] leading-relaxed lg:leading-[29px] max-w-[470px] mb-8 sm:mb-9">
             Casos reales de empresas que escalaron su operación con nuestro
             software.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          <div className="hero-enter hero-delay-3 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <HeroButton href="/contacto" variant="blue">
               <span>Construir mi solución</span>
               <ArrowRight className="w-4 h-4 shrink-0" />
@@ -50,7 +50,7 @@ export function HeroCasos() {
         </div>
 
         {/* Columna Derecha: Cuadrícula SVG de métricas con sombras */}
-        <div className="lg:col-span-6 flex justify-center lg:justify-end">
+        <div className="hero-enter hero-delay-2 lg:col-span-6 flex justify-center lg:justify-end">
           <div className="relative w-full max-w-[463px] aspect-[463/445] flex items-center justify-center">
             <Image
               src="/images/illustrations/cuadricula_stats.svg"

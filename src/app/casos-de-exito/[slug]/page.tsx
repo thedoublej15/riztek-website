@@ -46,6 +46,7 @@ export default async function CasoDetallePage({ params }: CasoDetallePageProps) 
         <ResultadosCaso
           titulo={caso.resultadoTitulo}
           cliente={caso.cliente}
+          coverBg={caso.coverBg}
           metricas={caso.metricas}
           galeria={caso.galeria}
         />

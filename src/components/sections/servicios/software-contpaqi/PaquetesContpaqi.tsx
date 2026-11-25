@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/ui/Reveal";
 
 interface PriceRow {
   label: string;
@@ -114,7 +115,7 @@ export function PaquetesContpaqi() {
       className="w-full px-4 sm:px-8 scroll-mt-28"
     >
       <div className="max-w-[1136px] mx-auto">
-        <div className="w-full text-left mb-12 lg:mb-14">
+        <Reveal className="w-full text-left mb-12 lg:mb-14">
           <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#E3ECFF] text-[#1E4FB8] text-[11px] font-bold tracking-[0.14em] uppercase mb-5">
             PAQUETES CONTPAQI
           </span>
@@ -124,76 +125,79 @@ export function PaquetesContpaqi() {
           >
             Elige el paquete ideal para tu negocio
           </h2>
-        </div>
+        </Reveal>
 
         {/* Grid de 6 Paquetes (3 columnas en desktop) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-          {packages.map((pkg) => {
+          {packages.map((pkg, index) => {
             const isCloud = pkg.modality === "En la nube";
             return (
-              <article
+              <Reveal
                 key={pkg.title}
-                className="bg-white rounded-[24px] p-7 border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] flex flex-col"
+                delay={(index % 3) * 90}
+                className="h-full"
               >
-                {/* Bloque superior fijo para que la línea divisoria quede alineada en toda la fila */}
-                <div>
-                  <div className="flex items-center justify-between gap-3 h-[46px] mb-5">
-                    <div className="flex items-center min-w-0">
-                      <Image
-                        src={pkg.logo}
-                        alt={pkg.logoAlt}
-                        width={360}
-                        height={90}
-                        className={`w-auto object-contain object-left ${pkg.logoClassName}`}
-                      />
+                <article className="h-full bg-white rounded-[24px] p-7 border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] flex flex-col">
+                  {/* Bloque superior fijo para que la línea divisoria quede alineada en toda la fila */}
+                  <div>
+                    <div className="flex items-center justify-between gap-3 h-[46px] mb-5">
+                      <div className="flex items-center min-w-0">
+                        <Image
+                          src={pkg.logo}
+                          alt={pkg.logoAlt}
+                          width={360}
+                          height={90}
+                          className={`w-auto object-contain object-left ${pkg.logoClassName}`}
+                        />
+                      </div>
+
+                      <span
+                        className={`inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold shrink-0 ${
+                          isCloud
+                            ? "bg-[#E2F6F3] text-[#0F8A7B]"
+                            : "bg-[#EEF4FF] text-[#1E4FB8]"
+                        }`}
+                      >
+                        {pkg.modality}
+                      </span>
                     </div>
 
-                    <span
-                      className={`inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold shrink-0 ${
-                        isCloud
-                          ? "bg-[#E2F6F3] text-[#0F8A7B]"
-                          : "bg-[#EEF4FF] text-[#1E4FB8]"
-                      }`}
-                    >
-                      {pkg.modality}
-                    </span>
+                    <h3 className="font-space font-semibold text-lg sm:text-xl text-slate-900 leading-snug mb-2">
+                      {pkg.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-[#5A687C] leading-relaxed min-h-[44px] mb-5">
+                      {pkg.description}
+                    </p>
                   </div>
 
-                  <h3 className="font-space font-semibold text-lg sm:text-xl text-slate-900 leading-snug mb-2">
-                    {pkg.title}
-                  </h3>
+                  {/* Tabla de Precios */}
+                  <div className="border-t border-slate-200/80 pt-5 flex-1">
+                    {pkg.sectionLabel && (
+                      <p className="text-[10px] font-bold tracking-[0.08em] uppercase text-slate-500 mb-3">
+                        {pkg.sectionLabel}
+                      </p>
+                    )}
 
-                  <p className="text-xs sm:text-sm text-[#5A687C] leading-relaxed min-h-[44px] mb-5">
-                    {pkg.description}
-                  </p>
-                </div>
-
-                {/* Tabla de Precios */}
-                <div className="border-t border-slate-200/80 pt-5 flex-1">
-                  {pkg.sectionLabel && (
-                    <p className="text-[10px] font-bold tracking-[0.08em] uppercase text-slate-500 mb-3">
-                      {pkg.sectionLabel}
-                    </p>
-                  )}
-
-                  <ul className="space-y-2.5">
-                    {pkg.prices.map((row) => (
-                      <li
-                        key={row.label}
-                        className="flex items-baseline justify-between gap-3 text-xs sm:text-[13px]"
-                      >
-                        <span className="text-[#5A687C]">{row.label}</span>
-                        <span className="font-semibold text-slate-900 whitespace-nowrap tabular-nums">
-                          {row.price}{" "}
-                          <span className="text-[10px] font-medium text-slate-400">
-                            + IVA
+                    <ul className="space-y-2.5">
+                      {pkg.prices.map((row) => (
+                        <li
+                          key={row.label}
+                          className="flex items-baseline justify-between gap-3 text-xs sm:text-[13px]"
+                        >
+                          <span className="text-[#5A687C]">{row.label}</span>
+                          <span className="font-semibold text-slate-900 whitespace-nowrap tabular-nums">
+                            {row.price}{" "}
+                            <span className="text-[10px] font-medium text-slate-400">
+                              + IVA
+                            </span>
                           </span>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              </Reveal>
             );
           })}
         </div>

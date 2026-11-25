@@ -1,6 +1,7 @@
 "use client";
 
 import { SectionButton } from "@/components/ui/SectionButton";
+import { Reveal } from "@/components/ui/Reveal";
 
 const row1Logos = [
   { src: "/images/logos/1_logo_rios.png", alt: "Ríos Ríos & Co." },
@@ -50,7 +51,7 @@ export function ClientsSection() {
   return (
     <section className="w-full overflow-hidden">
       {/* Encabezado alineado a 1136px con la misma tipografía */}
-      <div className="w-full px-4 sm:px-8">
+      <Reveal className="w-full px-4 sm:px-8">
         <div className="max-w-[1136px] mx-auto text-left mb-12 lg:mb-14">
           <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#E3ECFF] text-[#1E4FB8] text-[11px] font-bold tracking-[0.14em] uppercase mb-5">
             EMPRESAS QUE HAN CONFIADO EN NOSOTROS
@@ -64,10 +65,13 @@ export function ClientsSection() {
             Proyectos reales y soluciones tecnológicas que generan impacto en negocios de todos los sectores.
           </p>
         </div>
-      </div>
+      </Reveal>
 
       {/* Contenedor del Marquee Infinito con bordes difuminados */}
-      <div className="max-w-[1200px] mx-auto space-y-5 sm:space-y-6 mb-10 lg:mb-12 [contain:layout_paint] [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+      <Reveal
+        delay={100}
+        className="max-w-[1200px] mx-auto space-y-5 sm:space-y-6 mb-10 lg:mb-12 [contain:layout_paint] [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+      >
         {/* Fila 1: Logos 1 - 10 (Movimiento hacia la izquierda) */}
         <div
           onMouseEnter={(e) => handleSpeedChange(e, 0.25)}
@@ -119,16 +123,16 @@ export function ClientsSection() {
             </div>
           ))}
         </div>
-      </div>
+      </Reveal>
 
       {/* Botón CTA alineado a 1136px */}
-      <div className="w-full px-4 sm:px-8">
+      <Reveal delay={180} className="w-full px-4 sm:px-8">
         <div className="max-w-[1136px] mx-auto">
           <SectionButton href="/casos-de-exito">
             Ver casos de éxito
           </SectionButton>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

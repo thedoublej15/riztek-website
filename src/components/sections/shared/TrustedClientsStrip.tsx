@@ -21,13 +21,14 @@ export function TrustedClientsStrip() {
       aria-label="Clientes que confían en nuestra ingeniería"
       className="w-full px-4 sm:px-8 pt-2"
     >
-      <div className="max-w-[1136px] mx-auto">
+      <div className="hero-enter hero-delay-4 max-w-[1136px] mx-auto">
         <p className="text-center text-[11px] font-bold tracking-[0.14em] uppercase text-[#5A687C] mb-6 sm:mb-7">
           CLIENTES QUE CONFÍAN EN NUESTRA INGENIERÍA
         </p>
 
         <div className="relative overflow-hidden select-none pointer-events-none [contain:layout_paint] [mask-image:linear-gradient(90deg,transparent_0%,#000_12%,#000_88%,transparent_100%)] [-webkit-mask-image:linear-gradient(90deg,transparent_0%,#000_12%,#000_88%,transparent_100%)]">
-          <div className="flex w-max animate-marquee-left [animation-duration:48s] will-change-transform gap-4 sm:gap-5 py-1">            {trackLogos.map((logo, index) => (
+          <div className="flex w-max animate-marquee-left [animation-duration:48s] will-change-transform gap-4 sm:gap-5 py-1">
+            {trackLogos.map((logo, index) => (
               <div
                 key={`${logo.src}-${index}`}
                 aria-hidden={index >= clientLogos.length}

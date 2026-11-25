@@ -1,11 +1,11 @@
 import { HeroButton } from "@/components/ui/HeroButton";
 import { ArrowRight } from "lucide-react";
-
+import { Reveal } from "@/components/ui/Reveal";
 
 export function CtaPaginasWeb() {
   return (
     <section className="w-full px-4 sm:px-8">
-      <div className="relative max-w-[1200px] mx-auto rounded-[28px] bg-gradient-to-br from-[#235FE3] via-[#1C4EC3] to-[#143B99] shadow-[0_16px_40px_-12px_rgba(20,59,153,0.35)] overflow-hidden px-7 py-11 sm:px-12 sm:py-14 lg:py-16 text-center">
+      <Reveal className="relative max-w-[1200px] mx-auto rounded-[28px] bg-gradient-to-br from-[#235FE3] via-[#1C4EC3] to-[#143B99] shadow-[0_16px_40px_-12px_rgba(20,59,153,0.35)] overflow-hidden px-7 py-11 sm:px-12 sm:py-14 lg:py-16 text-center">
         {/* Destello decorativo suave */}
         <div
           aria-hidden="true"
@@ -26,7 +26,7 @@ export function CtaPaginasWeb() {
             <ArrowRight className="w-4 h-4 shrink-0" />
           </HeroButton>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

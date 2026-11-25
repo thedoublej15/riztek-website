@@ -1,4 +1,5 @@
 import { CasoExito } from "@/data/casos";
+import { Reveal } from "@/components/ui/Reveal";
 
 interface SobreLaEmpresaCasoProps {
   sobreLaEmpresa: CasoExito["sobreLaEmpresa"];
@@ -12,7 +13,7 @@ export function SobreLaEmpresaCaso({ sobreLaEmpresa }: SobreLaEmpresaCasoProps) 
     >
       <div className="max-w-[1136px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-start gap-6 lg:gap-12">
         {/* Columna Izquierda: Badge y Título */}
-        <div className="lg:col-span-5 text-left">
+        <Reveal className="lg:col-span-5 text-left">
           <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#E3ECFF] text-[#1E4FB8] text-[11px] font-bold tracking-[0.14em] uppercase mb-5">
             SOBRE LA EMPRESA
           </span>
@@ -23,14 +24,14 @@ export function SobreLaEmpresaCaso({ sobreLaEmpresa }: SobreLaEmpresaCasoProps) 
           >
             {sobreLaEmpresa.titulo}
           </h2>
-        </div>
+        </Reveal>
 
         {/* Columna Derecha: Descripción */}
-        <div className="lg:col-span-7 text-left lg:pt-[48px]">
+        <Reveal delay={120} className="lg:col-span-7 text-left lg:pt-[48px]">
           <p className="text-base sm:text-lg lg:text-[18px] text-[#5A687C] leading-relaxed lg:leading-[30px]">
             {sobreLaEmpresa.descripcion}
           </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
