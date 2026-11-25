@@ -1,9 +1,38 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { HeroButton } from "@/components/ui/HeroButton";
 
 export function HeroNosotros() {
+  const handleScrollToTeam = () => {
+    const target = document.getElementById("equipo");
+    if (!target) return;
+
+    const html = document.documentElement;
+    const prevScrollBehavior = html.style.scrollBehavior;
+
+    // Forzamos salto instantáneo anulando cualquier scroll-behavior: smooth global
+    html.style.scrollBehavior = "auto";
+
+    const scrollMarginTop =
+      parseFloat(getComputedStyle(target).scrollMarginTop) || 112;
+    const topPosition =
+      target.getBoundingClientRect().top + window.scrollY - scrollMarginTop;
+
+    window.scrollTo(0, topPosition);
+
+    // Restauramos el estilo previo en el siguiente frame
+    requestAnimationFrame(() => {
+      html.style.scrollBehavior = prevScrollBehavior;
+    });
+
+    if (window.location.hash !== "#equipo") {
+      window.history.replaceState(null, "", "#equipo");
+    }
+  };
+
   return (
     <section className="w-full px-4 sm:px-8 pt-[100px] sm:pt-[110px] lg:pt-[114px] pb-8 lg:pb-11 overflow-x-clip">
       <div className="max-w-[1136px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-center gap-10 lg:gap-8">
@@ -55,7 +84,11 @@ export function HeroNosotros() {
 
           {/* Botones idénticos a HeroCasos */}
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            <HeroButton href="#equipo" variant="blue">
+            <HeroButton
+              variant="blue"
+              onClick={handleScrollToTeam}
+              className="cursor-pointer"
+            >
               <span>Conoce nuestro equipo</span>
               <ArrowRight className="w-4 h-4 shrink-0" />
             </HeroButton>

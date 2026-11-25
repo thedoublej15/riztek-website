@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { SectionButton } from "@/components/ui/SectionButton";
 
 const row1Logos = [
@@ -32,34 +30,21 @@ const row2Logos = [
 ];
 
 export function ClientsSection() {
-  const router = useRouter();
-
-  const isDesktopWithMouse = () => {
-    if (typeof window === "undefined") return false;
-    return (
-      window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
-      window.innerWidth >= 1024
-    );
-  };
+  const isDesktopHover = () =>
+    typeof window !== "undefined" &&
+    window.innerWidth >= 1024 &&
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   const handleSpeedChange = (
     e: React.MouseEvent<HTMLDivElement>,
     rate: number
   ) => {
-    if (!isDesktopWithMouse()) return;
+    if (!isDesktopHover()) return;
 
     const animations = e.currentTarget.getAnimations();
-    animations.forEach((anim) => {
-      anim.playbackRate = rate;
-    });
-  };
-
-  const handleDesktopPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
-    // Bloquea cualquier interacción táctil ('touch') o lápiz ('pen'), y exige botón izquierdo del ratón en escritorio
-    if (e.pointerType !== "mouse" || e.button !== 0) return;
-    if (!isDesktopWithMouse()) return;
-
-    router.push("/casos-de-exito");
+    for (let i = 0; i < animations.length; i++) {
+      animations[i].playbackRate = rate;
+    }
   };
 
   return (
@@ -82,54 +67,55 @@ export function ClientsSection() {
       </div>
 
       {/* Contenedor del Marquee Infinito con bordes difuminados */}
-      <div
-        onPointerUp={handleDesktopPointerUp}
-        className="max-w-[1200px] mx-auto space-y-5 sm:space-y-6 mb-10 lg:mb-12 lg:[@media(hover:hover)_and_(pointer:fine)]:cursor-pointer [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
-      >
-        {/* Fila 1: Logos 1 - 10 (Movimiento hacia la derecha) */}
+      <div className="max-w-[1200px] mx-auto space-y-5 sm:space-y-6 mb-10 lg:mb-12 [contain:layout_paint] [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        {/* Fila 1: Logos 1 - 10 (Movimiento hacia la izquierda) */}
         <div
           onMouseEnter={(e) => handleSpeedChange(e, 0.25)}
           onMouseLeave={(e) => handleSpeedChange(e, 1)}
-          className="flex w-max animate-marquee-right"
+          className="flex w-max animate-marquee-left [animation-duration:45s] will-change-transform"
         >
           {[...row1Logos, ...row1Logos].map((logo, idx) => (
             <div
               key={`row1-${idx}`}
-              className="mx-2.5 sm:mx-3 w-[200px] h-[94px] sm:w-[255px] sm:h-[112px] bg-white rounded-[22px] border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:border-[#1E4FB8]/45 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:shadow-[0_12px_28px_rgba(30,79,184,0.1)] px-7 py-4 flex items-center justify-center shrink-0"
+              aria-hidden={idx >= row1Logos.length}
+              className="mx-2.5 sm:mx-3 w-[200px] h-[94px] sm:w-[255px] sm:h-[112px] bg-white rounded-[22px] border border-slate-200/75 shadow-[0_4px_14px_rgba(8,27,75,0.03)] px-7 py-4 flex items-center justify-center shrink-0 select-none"
             >
-              <div className="relative w-full h-full">
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  fill
-                  sizes="(max-width: 640px) 150px, 200px"
-                  className="object-contain"
-                />
-              </div>
+              <img
+                src={logo.src}
+                alt={idx < row1Logos.length ? logo.alt : ""}
+                width={200}
+                height={80}
+                loading="lazy"
+                decoding="async"
+                draggable={false}
+                className="max-w-full max-h-full w-auto h-auto object-contain pointer-events-none"
+              />
             </div>
           ))}
         </div>
 
-        {/* Fila 2: Logos 11 - 21 (Movimiento hacia la izquierda) */}
+        {/* Fila 2: Logos 11 - 21 (Movimiento hacia la derecha) */}
         <div
           onMouseEnter={(e) => handleSpeedChange(e, 0.25)}
           onMouseLeave={(e) => handleSpeedChange(e, 1)}
-          className="flex w-max animate-marquee-left"
+          className="flex w-max animate-marquee-right [animation-duration:49.5s] will-change-transform"
         >
           {[...row2Logos, ...row2Logos].map((logo, idx) => (
             <div
               key={`row2-${idx}`}
-              className="mx-2.5 sm:mx-3 w-[200px] h-[94px] sm:w-[255px] sm:h-[112px] bg-white rounded-[22px] border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:border-[#1E4FB8]/45 lg:[@media(hover:hover)_and_(pointer:fine)]:hover:shadow-[0_12px_28px_rgba(30,79,184,0.1)] px-7 py-4 flex items-center justify-center shrink-0"
+              aria-hidden={idx >= row2Logos.length}
+              className="mx-2.5 sm:mx-3 w-[200px] h-[94px] sm:w-[255px] sm:h-[112px] bg-white rounded-[22px] border border-slate-200/75 shadow-[0_4px_14px_rgba(8,27,75,0.03)] px-7 py-4 flex items-center justify-center shrink-0 select-none"
             >
-              <div className="relative w-full h-full">
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  fill
-                  sizes="(max-width: 640px) 150px, 200px"
-                  className="object-contain"
-                />
-              </div>
+              <img
+                src={logo.src}
+                alt={idx < row2Logos.length ? logo.alt : ""}
+                width={200}
+                height={80}
+                loading="lazy"
+                decoding="async"
+                draggable={false}
+                className="max-w-full max-h-full w-auto h-auto object-contain pointer-events-none"
+              />
             </div>
           ))}
         </div>

@@ -498,7 +498,7 @@ export function ContactoSection() {
               src="https://maps.google.com/maps?q=Olivo%20Farga%2017900,%2031183%20Chihuahua,%20Chih.,%20Mexico&t=&z=15&ie=UTF8&iwloc=&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-[calc(100%+72px)] -mt-[48px] border-0 saturate-[0.75] contrast-[0.96] lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:saturate-100"
+              className="w-full h-[calc(100%+260px)] -mt-[130px] border-0 saturate-[0.75] contrast-[0.96] lg:[@media(hover:hover)_and_(pointer:fine)]:transition-all lg:[@media(hover:hover)_and_(pointer:fine)]:duration-300 lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:saturate-100"
             />
           </div>
 

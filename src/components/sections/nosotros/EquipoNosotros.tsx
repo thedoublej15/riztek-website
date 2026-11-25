@@ -61,6 +61,7 @@ export function EquipoNosotros() {
                   src={miembro.imagen}
                   alt={`${miembro.nombre} ${miembro.apellido} - ${miembro.cargo}`}
                   fill
+                  priority
                   sizes="(max-width: 640px) 100vw, 350px"
                   className="object-cover object-top"
                 />

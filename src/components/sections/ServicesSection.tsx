@@ -106,7 +106,7 @@ export function ServicesSection() {
                 <div className="relative z-20 lg:pointer-events-none [@media(pointer:coarse)]:!pointer-events-auto">
                   <SectionButton
                     href={service.href}
-                    className="lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-[#173e93]"
+                    className="lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-[#173e93] lg:[@media(hover:hover)_and_(pointer:fine)]:group-hover:[&_svg]:translate-x-1"
                   >
                     Ver servicio
                   </SectionButton>

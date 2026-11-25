@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const clientLogos = [
   { src: "/images/logos/1_logo_rios.png", alt: "Ríos" },
   { src: "/images/logos/2_logo_benitez.png", alt: "Benítez" },
@@ -28,22 +26,23 @@ export function TrustedClientsStrip() {
           CLIENTES QUE CONFÍAN EN NUESTRA INGENIERÍA
         </p>
 
-        <div className="relative overflow-hidden select-none pointer-events-none [mask-image:linear-gradient(90deg,transparent_0%,#000_12%,#000_88%,transparent_100%)] [-webkit-mask-image:linear-gradient(90deg,transparent_0%,#000_12%,#000_88%,transparent_100%)]">
-          <div className="animate-marquee-left gap-4 sm:gap-5 py-1">
-            {trackLogos.map((logo, index) => (
+        <div className="relative overflow-hidden select-none pointer-events-none [contain:layout_paint] [mask-image:linear-gradient(90deg,transparent_0%,#000_12%,#000_88%,transparent_100%)] [-webkit-mask-image:linear-gradient(90deg,transparent_0%,#000_12%,#000_88%,transparent_100%)]">
+          <div className="flex w-max animate-marquee-left [animation-duration:48s] will-change-transform gap-4 sm:gap-5 py-1">            {trackLogos.map((logo, index) => (
               <div
                 key={`${logo.src}-${index}`}
-                className="w-[140px] sm:w-[162px] h-[64px] sm:h-[72px] shrink-0 rounded-2xl bg-white border border-slate-200/70 shadow-[0_6px_24px_rgba(8,27,75,0.03)] flex items-center justify-center px-5 py-3"
+                aria-hidden={index >= clientLogos.length}
+                className="w-[140px] sm:w-[162px] h-[64px] sm:h-[72px] shrink-0 rounded-2xl bg-white border border-slate-200/70 shadow-[0_4px_14px_rgba(8,27,75,0.03)] flex items-center justify-center px-5 py-3"
               >
-                <div className="relative w-full h-full">
-                  <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    fill
-                    sizes="162px"
-                    className="object-contain grayscale contrast-125 opacity-80"
-                  />
-                </div>
+                <img
+                  src={logo.src}
+                  alt={index < clientLogos.length ? logo.alt : ""}
+                  width={130}
+                  height={48}
+                  loading="lazy"
+                  decoding="async"
+                  draggable={false}
+                  className="max-w-full max-h-full w-auto h-auto object-contain grayscale contrast-125 opacity-80"
+                />
               </div>
             ))}
           </div>
