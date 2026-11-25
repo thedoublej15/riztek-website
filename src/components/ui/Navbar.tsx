@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
@@ -34,16 +33,6 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleHomeNavigation = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    setIsOpen(false);
-    setServicesOpen(false);
-
-    if (pathname === "/") {
-      e.preventDefault();
-      window.scrollTo(0, 0);
-    }
-  };
 
   const supportsFineHover = () =>
     typeof window !== "undefined" &&
@@ -93,9 +82,8 @@ export function Navbar() {
         <div className="flex items-center justify-between h-[58px]">
           
           {/* Logo */}
-          <Link
+          <a
             href="/"
-            onClick={handleHomeNavigation}
             aria-label="Ir al inicio de Riztek"
             className="flex items-center shrink-0"
           >
@@ -107,13 +95,12 @@ export function Navbar() {
               priority
               className="h-20 sm:h-24 w-auto object-contain"
             />
-          </Link>
+          </a>
 
           {/* Menú de Escritorio (solo desde 1024px para evitar saltos de línea) */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-9">
-            <Link
+            <a
               href="/"
-              onClick={handleHomeNavigation}
               className={`text-nav-link whitespace-nowrap px-3.5 py-1.5 rounded-full transition-all duration-200 ${
                 isHome
                   ? "text-[#1E4FB8] font-semibold bg-[#1E4FB8]/10 shadow-[0_0_16px_rgba(30,79,184,0.18)]"
@@ -121,7 +108,7 @@ export function Navbar() {
               }`}
             >
               Inicio
-            </Link>
+            </a>
 
             {/* Dropdown de Servicios (auto-despliegue con puntero + clic seguro) */}
             <div
@@ -157,9 +144,8 @@ export function Navbar() {
                         : "bg-white shadow-xl border border-slate-100"
                     }`}
                   >
-                    <Link
+                    <a
                       href="/servicios/software-a-la-medida"
-                      onClick={() => setServicesOpen(false)}
                       className={`block px-4 py-2.5 rounded-xl text-nav-link ${
                         pathname === "/servicios/software-a-la-medida"
                           ? "bg-[#1E4FB8]/10 text-[#1E4FB8] font-semibold"
@@ -167,10 +153,9 @@ export function Navbar() {
                       }`}
                     >
                       Software a la Medida
-                    </Link>
-                    <Link
+                    </a>
+                    <a
                       href="/servicios/aplicaciones-moviles"
-                      onClick={() => setServicesOpen(false)}
                       className={`block px-4 py-2.5 rounded-xl text-nav-link ${
                         pathname === "/servicios/aplicaciones-moviles"
                           ? "bg-[#1E4FB8]/10 text-[#1E4FB8] font-semibold"
@@ -178,10 +163,9 @@ export function Navbar() {
                       }`}
                     >
                       Aplicaciones Móviles
-                    </Link>
-                    <Link
+                    </a>
+                    <a
                       href="/servicios/paginas-web"
-                      onClick={() => setServicesOpen(false)}
                       className={`block px-4 py-2.5 rounded-xl text-nav-link ${
                         pathname === "/servicios/paginas-web"
                           ? "bg-[#1E4FB8]/10 text-[#1E4FB8] font-semibold"
@@ -189,10 +173,9 @@ export function Navbar() {
                       }`}
                     >
                       Páginas Web
-                    </Link>
-                    <Link
+                    </a>
+                    <a
                       href="/servicios/software-contpaqi"
-                      onClick={() => setServicesOpen(false)}
                       className={`block px-4 py-2.5 rounded-xl text-nav-link ${
                         pathname === "/servicios/software-contpaqi"
                           ? "bg-[#1E4FB8]/10 text-[#1E4FB8] font-semibold"
@@ -200,13 +183,13 @@ export function Navbar() {
                       }`}
                     >
                       Software CONTPAQi
-                    </Link>
+                    </a>
                   </div>
                 </div>
               )}
             </div>
 
-            <Link
+            <a
               href="/casos-de-exito"
               className={`text-nav-link whitespace-nowrap px-3.5 py-1.5 rounded-full transition-all duration-200 ${
                 isCases
@@ -215,8 +198,8 @@ export function Navbar() {
               }`}
             >
               Casos de éxito
-            </Link>
-            <Link
+            </a>
+            <a
               href="/nosotros"
               className={`text-nav-link whitespace-nowrap px-3.5 py-1.5 rounded-full transition-all duration-200 ${
                 isAbout
@@ -225,17 +208,17 @@ export function Navbar() {
               }`}
             >
               Nosotros
-            </Link>
+            </a>
           </nav>
 
           {/* Botón de Contacto (Escritorio) */}
           <div className="hidden lg:block shrink-0">
-            <Link
+            <a
               href="/contacto"
               className="btn-motion inline-flex items-center justify-center px-6 py-3 rounded-full text-btn-sm text-white bg-[#1E4FB8] lg:[@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#173e93] shadow-sm shadow-[#1E4FB8]/25"
             >
               Contacto
-            </Link>
+            </a>
           </div>
 
           {/* Botón Menú Móvil y Tablet (< 1024px) */}
@@ -262,9 +245,8 @@ export function Navbar() {
                 : "bg-white border border-slate-100 shadow-xl"
             }`}
           >
-            <Link
+            <a
               href="/"
-              onClick={handleHomeNavigation}
               className={`block px-3 py-2 rounded-xl text-base transition-colors ${
                 isHome
                   ? "text-[#1E4FB8] font-semibold bg-[#1E4FB8]/10"
@@ -272,12 +254,11 @@ export function Navbar() {
               }`}
             >
               Inicio
-            </Link>
+            </a>
             <div className="space-y-1 pl-3 border-l-2 border-slate-200/70 my-2">
               <p className="text-eyebrow text-slate-400 py-1">Servicios</p>
-              <Link
+              <a
                 href="/servicios/software-a-la-medida"
-                onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-xl text-nav-link ${
                   pathname === "/servicios/software-a-la-medida"
                     ? "text-[#1E4FB8] font-semibold bg-[#1E4FB8]/10"
@@ -285,10 +266,9 @@ export function Navbar() {
                 }`}
               >
                 Software a la Medida
-              </Link>
-              <Link
+              </a>
+              <a
                 href="/servicios/aplicaciones-moviles"
-                onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-xl text-nav-link ${
                   pathname === "/servicios/aplicaciones-moviles"
                     ? "text-[#1E4FB8] font-semibold bg-[#1E4FB8]/10"
@@ -296,10 +276,9 @@ export function Navbar() {
                 }`}
               >
                 Aplicaciones Móviles
-              </Link>
-              <Link
+              </a>
+              <a
                 href="/servicios/paginas-web"
-                onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-xl text-nav-link ${
                   pathname === "/servicios/paginas-web"
                     ? "text-[#1E4FB8] font-semibold bg-[#1E4FB8]/10"
@@ -307,10 +286,9 @@ export function Navbar() {
                 }`}
               >
                 Páginas Web
-              </Link>
-              <Link
+              </a>
+              <a
                 href="/servicios/software-contpaqi"
-                onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-xl text-nav-link ${
                   pathname === "/servicios/software-contpaqi"
                     ? "text-[#1E4FB8] font-semibold bg-[#1E4FB8]/10"
@@ -318,11 +296,10 @@ export function Navbar() {
                 }`}
               >
                 Software CONTPAQi
-              </Link>
+              </a>
             </div>
-            <Link
+            <a
               href="/casos-de-exito"
-              onClick={() => setIsOpen(false)}
               className={`block px-3 py-2 rounded-xl text-base transition-colors ${
                 isCases
                   ? "text-[#1E4FB8] font-semibold bg-[#1E4FB8]/10"
@@ -330,10 +307,9 @@ export function Navbar() {
               }`}
             >
               Casos de éxito
-            </Link>
-            <Link
+            </a>
+            <a
               href="/nosotros"
-              onClick={() => setIsOpen(false)}
               className={`block px-3 py-2 rounded-xl text-base transition-colors ${
                 isAbout
                   ? "text-[#1E4FB8] font-semibold bg-[#1E4FB8]/10"
@@ -341,15 +317,14 @@ export function Navbar() {
               }`}
             >
               Nosotros
-            </Link>
+            </a>
             <div className="pt-2">
-              <Link
+              <a
                 href="/contacto"
-                onClick={() => setIsOpen(false)}
                 className="w-full flex items-center justify-center px-6 py-2.5 rounded-full text-btn-sm text-white bg-[#1E4FB8] shadow-md shadow-[#1E4FB8]/25"
               >
                 Contacto
-              </Link>
+              </a>
             </div>
           </div>
         </div>
